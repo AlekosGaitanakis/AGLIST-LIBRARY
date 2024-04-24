@@ -1,0 +1,23 @@
+AGLIST : struct aglist
+
+
+#to initialize the list:
+	INIT(AGLIST** aglist);
+
+#to insert at the start:
+	INSERT_START(AGLIST** aglist, int val);
+
+#to insert at the end:
+	INSERT_END(AGLIST** aglist, int val);
+
+#to sort the list:
+	SORT_LIST(AGLIST** aglist);
+
+#to insert at sorted list:
+	INSERT_AT_SORTED(AGLIST** aglist, int val);
+
+#to print the list:
+	PRINT_LIST(AGLIST* aglist);
+
+#to free the list:
+	FREE_LIST(AGLIST** aglist);
