@@ -23,7 +23,7 @@ AGTREE* new_tree_node(AGTREE* tree, int val){
 }
 
 /**
- * O(logn), inserts at tree
+ * inserts at tree
 */
 AGTREE* insert_at_tree(AGTREE* tree, int val){
     if(tree == NULL){
