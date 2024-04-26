@@ -5,6 +5,10 @@
 AGTREE* tree = NULL;
 AGTREE* lastElement = NULL;
 
+
+/**
+ * O(1), creates newNode
+*/
 AGTREE* new_tree_node(AGTREE* tree, int val){
     AGTREE* newNode = malloc(sizeof(AGTREE));
     if(newNode == NULL){
@@ -18,6 +22,9 @@ AGTREE* new_tree_node(AGTREE* tree, int val){
     return newNode;
 }
 
+/**
+ * O(logn), inserts at tree
+*/
 AGTREE* insert_at_tree(AGTREE* tree, int val){
     if(tree == NULL){
         AGTREE* newNode = NULL;
@@ -34,6 +41,9 @@ AGTREE* insert_at_tree(AGTREE* tree, int val){
     return tree;
 }
 
+/**
+ * print the tree
+*/
 void printTree(AGTREE* tree){
     if(tree == NULL){
         return ;
@@ -44,6 +54,9 @@ void printTree(AGTREE* tree){
     printTree(tree->right);
 }
 
+/**
+ * free the tree
+*/
 void free_tree(AGTREE* tree){
     if(tree == NULL){
         return ;
@@ -54,11 +67,16 @@ void free_tree(AGTREE* tree){
     free(tree);
 }
 
+/**
+ * init the single linked list
+*/
 void init_single_linked_list(AGLIST** aglist){
     *aglist = NULL;
 }
 
-
+/**
+ * creates new Node for the list
+*/
 AGLIST* create_new_node(AGLIST* aglist, int val){
     AGLIST* newNode= malloc(sizeof(AGLIST));
     if(newNode == NULL){
@@ -70,6 +88,9 @@ AGLIST* create_new_node(AGLIST* aglist, int val){
     return newNode;
 }
 
+/**
+ * insert at the start of the list and insertion at the tree
+*/
 void insert_at_start(AGLIST** aglist, int val){
     AGLIST* newNode = NULL;
 
@@ -85,7 +106,9 @@ void insert_at_start(AGLIST** aglist, int val){
     }
 }
 
-
+/**
+ * list insertion at the end and tree insertion
+*/
 void insert_at_end(AGLIST** aglist, int val){
     AGLIST* newNode = NULL;
     newNode = create_new_node(newNode, val);
@@ -105,6 +128,9 @@ void insert_at_end(AGLIST** aglist, int val){
     }
 }
 
+/**
+ * finds the next minimum tree node to replace the one that will be deleted
+*/
 AGTREE* find_next_node(AGTREE* tree){
     AGTREE* currTree = tree;
 
@@ -114,6 +140,9 @@ AGTREE* find_next_node(AGTREE* tree){
     return currTree;
 }
 
+/**
+ * delete elements in tree
+*/
 AGTREE* delete_tree_element(AGTREE* tree, int val){
     AGTREE* tempNode;
     if(tree == NULL){
@@ -147,7 +176,9 @@ AGTREE* delete_tree_element(AGTREE* tree, int val){
     }
     return tree;
 }
-
+/**
+ * deletes element in the list
+*/
 int delete_element(AGLIST** aglist, int val){
     AGLIST* temp = *aglist;
     AGLIST* prev = NULL;
@@ -155,8 +186,6 @@ int delete_element(AGLIST** aglist, int val){
         return -1;
     }
     tree = delete_tree_element(tree, val);
-    printf("\n");
-    printTree(tree);
     if((*aglist)->val == val && (*aglist)->next == NULL){
         free(*aglist);
         *aglist = NULL;
@@ -188,7 +217,9 @@ int delete_element(AGLIST** aglist, int val){
     return -1;
 }
 
-
+/**
+ * inserts at the start of the linked list from tree
+*/
 void insert_start_for_tree(AGLIST** aglist, int val){
     AGLIST* newNode = NULL;
 
@@ -202,7 +233,9 @@ void insert_start_for_tree(AGLIST** aglist, int val){
         *aglist = newNode;
     }
 }
-
+/**
+ * inserts in list from tree
+*/
 void insert_in_list_from_tree(AGTREE* tree, AGLIST** aglist){
     if(tree == NULL){
         return ;
@@ -213,6 +246,9 @@ void insert_in_list_from_tree(AGTREE* tree, AGLIST** aglist){
     insert_in_list_from_tree(tree->right, aglist);
 }
 
+/**
+ * sorts the list 
+*/
 int sort_list(AGLIST** aglist){
     if(*aglist == NULL){
         return -1;
@@ -222,6 +258,9 @@ int sort_list(AGLIST** aglist){
     return 0;
 }
 
+/**
+ * prints the list
+*/
 void print_list(AGLIST* aglist){
     AGLIST* temp = aglist;
     int isFirstCounter = 0;
@@ -243,7 +282,9 @@ void print_list(AGLIST* aglist){
     }
 }
 
-
+/**
+ * inserts at sorted list
+*/
 int insert_at_sorted_list(AGLIST** aglist, int val){
     AGLIST* newNode = NULL;
     AGLIST* temp = *aglist;
@@ -287,6 +328,10 @@ int insert_at_sorted_list(AGLIST** aglist, int val){
     }
     return -1;
 }
+
+/**
+ * free the list
+*/
 void free_list(AGLIST** aglist){
     while(*aglist != NULL){
         AGLIST* tempNode = *aglist;
@@ -296,6 +341,9 @@ void free_list(AGLIST** aglist){
     *aglist = NULL;
 }
 
+/**
+ * free the list and the tree
+*/
 void free_all(AGLIST** aglist){
     while(*aglist != NULL){
         AGLIST* tempNode = *aglist;
