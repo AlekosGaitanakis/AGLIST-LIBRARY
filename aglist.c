@@ -7,7 +7,7 @@ AGTREE* lastElement = NULL;
 
 
 /**
- * O(1), creates newNode
+ * creates newNode
 */
 AGTREE* new_tree_node(AGTREE* tree, int val){
     AGTREE* newNode = malloc(sizeof(AGTREE));
