@@ -3,8 +3,6 @@
 #include <stdio.h>
 
 AGTREE* tree = NULL;
-AGTREE* lastElement = NULL;
-
 
 /**
  * creates newNode
