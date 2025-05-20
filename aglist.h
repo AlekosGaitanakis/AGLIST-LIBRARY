@@ -1,6 +1,9 @@
 #ifndef _AGLIST_H_
 #define _AGLIST_H_
 
+#include <stdio.h>
+#include <stdlib.h>
+
 #define BEGIN int main(void){
 #define END return 0;}
 #define INIT(aglist) init_single_linked_list(aglist)
@@ -19,6 +22,7 @@
 
     struct tree{
         int val;
+        int height;
         struct tree* left;
         struct tree* right;
     };

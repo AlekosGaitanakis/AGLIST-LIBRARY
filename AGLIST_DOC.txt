@@ -1,3 +1,6 @@
+include the lib:
+    #include "aglist.h"
+
 AGLIST : struct aglist
 
 

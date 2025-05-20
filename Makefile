@@ -1,4 +1,4 @@
-FLAGS = -ansi -Wall -pedantic
+FLAGS = -ansi -Wall
 
 all: aglist
 
